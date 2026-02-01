@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm0iah28rwwoh"]
+
+[ext_resource type="Texture2D" uid="uid://dkyv2jekdedos" path="res://icon.svg" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://ba8a4oyhktfy" path="res://player.gd" id="1_onrkg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
+radius = 42.0
+height = 136.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4flbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(0, 12)
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_i3pqv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(0.499999, -11.5)
+scale = Vector2(0.664063, 1.05469)
+sprite_frames = SubResource("SpriteFrames_onrkg")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -12)
+position_smoothing_enabled = true
+position_smoothing_speed = 5.11
