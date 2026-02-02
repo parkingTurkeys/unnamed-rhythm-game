@@ -1,0 +1,1 @@
+bpm:60;len:60STARTl,l,l,l,h,1,h,1,h,1,h,1

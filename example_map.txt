@@ -1,0 +1,3 @@
+bpm = 120 //beats per minutes
+len = 120 //length in beats
+START

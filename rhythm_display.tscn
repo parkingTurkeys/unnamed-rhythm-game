@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ci5w1tl4a0ajq"]
+
+[ext_resource type="Script" uid="uid://nj7810t6e11i" path="res://rhythm_display.gd" id="1_ur26x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kn0pc"]
+font_size = 70
+
+[node name="key_display" type="Label" unique_id=759184441]
+offset_left = -83.0
+offset_top = 545.0
+offset_bottom = 642.0
+text = "⬆"
+label_settings = SubResource("LabelSettings_kn0pc")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_ur26x")
