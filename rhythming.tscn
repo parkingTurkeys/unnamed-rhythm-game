@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dad8wuged6ypr"]
 
 [ext_resource type="Script" uid="uid://ewwku3duf3ix" path="res://rhythming.gd" id="1_5jap7"]
+[ext_resource type="Script" uid="uid://ck831hbl4ukq" path="res://center_marker.gd" id="2_5iod4"]
 
 [node name="rhythming" type="Node2D" unique_id=842256082]
 script = ExtResource("1_5jap7")
@@ -13,5 +14,12 @@ polygon = PackedVector2Array(1, 546, 1153, 546, 1154, 675, -3, 675)
 
 [node name="metronome" type="Timer" parent="." unique_id=1344435623]
 unique_name_in_owner = true
+
+[node name="center_marker" type="Polygon2D" parent="." unique_id=971448392]
+position = Vector2(41, -21)
+scale = Vector2(1, 1.0408163)
+color = Color(1, 0, 1, 0.57254905)
+polygon = PackedVector2Array(526, 547, 526.2773, 574.1615, 526.5514, 601.03516, 527, 645, 545, 645, 545, 547)
+script = ExtResource("2_5iod4")
 
 [connection signal="timeout" from="metronome" to="." method="_on_metronome_timeout"]

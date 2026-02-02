@@ -5,6 +5,7 @@ var map_loc = "res://maps/test.txt"
 var actions = ["h", "j", "k", "l", "a", "d", "w", "s"]
 var beatmap
 var note = preload("res://rhythm_display.tscn")
+var clicks = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	add_keys_pressed()
 
 func file_to_array(map_loc_yes):
 	var beat_array = []
@@ -52,7 +53,7 @@ func file_to_array(map_loc_yes):
 
 func _on_metronome_timeout() -> void:
 	if beatmap.map != []:
-		print("YURI PARTY")
+		print("VOTE YURI PARTY")
 		var curr_note = beatmap.map[0]
 		beatmap.map.remove_at(0)
 		if curr_note == "R":
@@ -61,3 +62,23 @@ func _on_metronome_timeout() -> void:
 			GlobalData.current_note = curr_note
 			var instance = note.instantiate()
 			add_child(instance)
+
+func add_keys_pressed() -> void:
+	var curr_clicks = []
+	if Input.is_action_just_pressed("up"):
+		curr_clicks.append("w")
+	elif Input.is_action_just_pressed("down"):
+		curr_clicks.append("s")
+	elif Input.is_action_just_pressed("left"):
+		curr_clicks.append("a")
+	elif Input.is_action_just_pressed("right"):
+		curr_clicks.append("d")
+	elif Input.is_action_just_pressed("atk"):
+		curr_clicks.append("k")
+	elif Input.is_action_just_pressed("rhythm"):
+		curr_clicks.append("l")
+	elif Input.is_action_just_pressed("dash"):
+		curr_clicks.append("j")
+	elif Input.is_action_just_pressed("jump"):
+		curr_clicks.append("h")
+	clicks.append(curr_clicks)
