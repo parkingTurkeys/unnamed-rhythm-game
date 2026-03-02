@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c8dsj6raykbqf"]
+
+[ext_resource type="Script" uid="uid://b8ijwba6twqib" path="res://login.gd" id="1_3n56f"]
+[ext_resource type="Texture2D" uid="uid://b1dnankuw3t4m" path="res://art-stuff/etc/bg/bg_001.png" id="2_xlo4h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bvvwm"]
+font_size = 42
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_6hqeh"]
+default_font_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edd8a"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="login" type="Control" unique_id=1352259651]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3n56f")
+
+[node name="Bg001" type="Sprite2D" parent="." unique_id=1101730943]
+position = Vector2(578.5, 330)
+scale = Vector2(1.9915253, 1.9186045)
+texture = ExtResource("2_xlo4h")
+
+[node name="name_input" type="LineEdit" parent="." unique_id=997459132]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 416.0
+offset_top = 184.0
+offset_right = 842.0
+offset_bottom = 249.0
+
+[node name="password_input" type="LineEdit" parent="." unique_id=111612820]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 416.0
+offset_top = 280.0
+offset_right = 842.0
+offset_bottom = 349.0
+
+[node name="Label" type="Label" parent="." unique_id=241247845]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 180.0
+offset_right = 396.0
+offset_bottom = 255.0
+text = "Username:"
+label_settings = SubResource("LabelSettings_bvvwm")
+
+[node name="Label2" type="Label" parent="." unique_id=516671905]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 280.0
+offset_right = 410.0
+offset_bottom = 355.0
+text = "Password:"
+label_settings = SubResource("LabelSettings_bvvwm")
+
+[node name="Label3" type="Label" parent="." unique_id=317393181]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 40.0
+offset_right = 294.0
+offset_bottom = 115.0
+text = "LOGIN"
+label_settings = SubResource("LabelSettings_bvvwm")
+
+[node name="submit" type="Button" parent="." unique_id=504816523]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 448.0
+offset_right = 1002.0
+offset_bottom = 621.0
+theme = SubResource("Theme_6hqeh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_edd8a")
+text = "SUBMIT"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=586883035]
+
+[connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]

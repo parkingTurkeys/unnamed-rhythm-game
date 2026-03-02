@@ -52,6 +52,7 @@ func file_to_array(map_loc_yes):
 
 
 func _on_metronome_timeout() -> void:
+	check_prev_note()
 	if beatmap.map != []:
 		print("VOTE YURI PARTY")
 		var curr_note = beatmap.map[0]
@@ -82,3 +83,6 @@ func add_keys_pressed() -> void:
 	elif Input.is_action_just_pressed("jump"):
 		curr_clicks.append("h")
 	clicks.append(curr_clicks)
+
+func check_prev_note():
+	pass
