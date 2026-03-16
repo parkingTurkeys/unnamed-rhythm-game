@@ -9,6 +9,8 @@ var note = preload("res://rhythm_display.tscn")
 var all_clicks = []
 var current_note_clicks = []
 var current_acc_clicks = []
+var note_accs = []
+#var note_accs_fin = [] # now -> GlobalData.note_accuracies
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -60,13 +62,14 @@ func file_to_array(map_loc_yes):
 
 
 func _on_metronome_timeout() -> void:
-	check_notes()
+	if (GlobalData.current_note != ""): check_notes() #we dont want to check when theres nothing to check
+	if (note_accs.size() >= 2): resolve_past_note()
 	if beatmap.map != []:
 		print("VOTE YURI PARTY")
 		var curr_note = beatmap.map[0]
 		beatmap.map.remove_at(0)
 		GlobalData.current_note = curr_note
-		GlobalData.next_note = beatmap.map[0] # since we removed the current note :4
+		if beatmap.map != [] : GlobalData.next_note = beatmap.map[0] # since we removed the current note :4
 		if curr_note == "R":
 			pass
 		else:
@@ -114,10 +117,10 @@ func check_notes():
 			for n in range(current_note_clicks[i].size()):
 				if (current_note_clicks[i][n].has(GlobalData.current_note) && current_note_found == false):
 					current_note_found = true
-					accs_lost_for_curr_note = n
+					accs_lost_for_curr_note = str(n)
 				if (current_note_clicks[i][n].has(GlobalData.next_note) && next_note_found == false):
 					next_note_found = true
-					accs_lost_for_next_note = current_acc_clicks.size() - n
+					accs_lost_for_next_note = str(current_acc_clicks.size() - n)
 	if (current_note_found == false):
 		accs_lost_for_curr_note = "M"
 	if (next_note_found == false):
@@ -125,6 +128,13 @@ func check_notes():
 	print(accs_lost_for_curr_note)
 	all_clicks.append(current_note_clicks)
 	current_note_clicks = []
+	# ADD ACCURACY TO LIST
+	if (note_accs.is_empty() == false): 
+		note_accs[note_accs.size() - 1][1] = accs_lost_for_curr_note
+	else:
+		note_accs.append(["M",accs_lost_for_curr_note])
+	note_accs.append([accs_lost_for_next_note,"M"])
+	
 
 
 func _on_acc_timeout() -> void:
@@ -160,3 +170,22 @@ func _on_acc_timeout() -> void:
 		#accs_lost_for_curr_note = "M"
 	#if (next_note_found == false):
 		#accs_lost_for_next_note = "M"
+
+func resolve_past_note():
+	var note_acc_to_check = note_accs[note_accs.size() - 2] 
+	if (note_acc_to_check[0] == "M" && note_acc_to_check[1] == "M"):
+		#MISS
+		GlobalData.note_accuracies.append("M")
+	elif (note_acc_to_check[0] == "M"):
+		#Clicked afterwards only
+		GlobalData.note_accuracies.append(note_acc_to_check[1])
+	elif (note_acc_to_check[1] == "M"):
+		#Clicked early only
+		GlobalData.note_accuracies.append(note_acc_to_check[0])
+	else:
+		#Clicked both before and after
+		if (note_acc_to_check[0] >= note_acc_to_check[1]):
+			GlobalData.note_accuracies.append(note_acc_to_check[1]) # Do the smaller one :3
+		else:
+			GlobalData.note_accuracies.append(note_acc_to_check[0])
+	

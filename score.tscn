@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b5m5lt7d3b5ke"]
+
+[ext_resource type="Script" uid="uid://d3wnbqpjw8jrg" path="res://score.gd" id="1_t1x8i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1x8i"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_ceanc"]
+font_size = 48
+
+[node name="Score" type="Label" unique_id=854860021]
+offset_left = 257.0
+offset_top = 5.0
+offset_right = 297.0
+offset_bottom = 72.0
+text = "2"
+label_settings = SubResource("LabelSettings_t1x8i")
+script = ExtResource("1_t1x8i")
+
+[node name="Label" type="Label" parent="." unique_id=1958429993]
+layout_mode = 0
+offset_left = -237.0
+offset_top = -1.0
+offset_right = -16.0
+offset_bottom = 66.0
+text = "Accuracy:"
+label_settings = SubResource("LabelSettings_ceanc")
