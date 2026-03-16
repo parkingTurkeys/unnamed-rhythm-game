@@ -22,4 +22,8 @@ color = Color(1, 0, 1, 0.57254905)
 polygon = PackedVector2Array(526, 547, 526.2773, 574.1615, 526.5514, 601.03516, 527, 645, 545, 645, 545, 547)
 script = ExtResource("2_5iod4")
 
+[node name="acc_timeout" type="Timer" parent="." unique_id=871562092]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="metronome" to="." method="_on_metronome_timeout"]
+[connection signal="timeout" from="acc_timeout" to="." method="_on_acc_timeout"]
