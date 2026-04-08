@@ -10,11 +10,14 @@ var all_clicks = []
 var current_note_clicks = []
 var current_acc_clicks = []
 var note_accs = []
+var spawned_notes_array = []
+var next_is_end = false;
 #var note_accs_fin = [] # now -> GlobalData.note_accuracies
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	beatmap = file_to_array(map_loc)
+	spawned_notes_array = beatmap.map
 	print(beatmap)
 	metronome.start(60.0/float(beatmap.bpm))
 	print(metronome)
@@ -45,6 +48,7 @@ func file_to_array(map_loc_yes):
 				acc = settingy_thing[1]
 	var map_body = content.split("START")[1].split(",")
 	for i in map_body:
+		print(i)
 		if actions.has(i):
 			# it's a thing to do
 			beat_array.append(i)
@@ -54,28 +58,40 @@ func file_to_array(map_loc_yes):
 				# Yay
 				for n in range(0, i.to_int()):
 					beat_array.append("R")
-			else:
-				print("your beatmap is broken :(")
-				return {"map":["w", "w", "s", "s", "a", "d", "a", "d", "h", "j"], "bpm": 20, "len": 10, "acc":30}
+			else: 
+				if i == " " || i == "\n" || i == "\r":
+					pass;
+				else:
+					print("your beatmap is broken :(")
+					return {"map":["w", "w", "s", "s", "a", "d", "a", "d", "h", "j"], "bpm": 20, "len": 10, "acc":30}
 	print(beat_array)
 	return {"map":beat_array, "bpm": bpm, "len": len, "acc": acc}
 
 
 func _on_metronome_timeout() -> void:
+	var curr_note
 	if (GlobalData.current_note != ""): check_notes() #we dont want to check when theres nothing to check
 	if (note_accs.size() >= 2): resolve_past_note()
-	if beatmap.map != []:
-		print("VOTE YURI PARTY")
-		var curr_note = beatmap.map[0]
+	if (next_is_end):
+		end_lvl()
+	if (beatmap.map != [] && GlobalData.start_yet): # there's still map to play, get what note to check!! and like yk. the stuff for the rhythm checking. also make sure we're even supposed to be checking the notes :3
+		# print("VOTE YURI PARTY")
+		curr_note = beatmap.map[0]
 		beatmap.map.remove_at(0)
 		GlobalData.current_note = curr_note
 		if beatmap.map != [] : GlobalData.next_note = beatmap.map[0] # since we removed the current note :4
-		if curr_note == "R":
+		else: # if the beatmap is EMPTY!! :o
+			next_is_end = true;
+	if (spawned_notes_array != []):
+		var spawny_note = spawned_notes_array[0]
+		if spawny_note == "R":
 			pass
 		else:
-			
+			GlobalData.note_to_spawn = spawned_notes_array[0]
 			var instance = note.instantiate()
 			add_child(instance)
+		spawned_notes_array.remove_at(0)
+		
 
 func add_keys_pressed() -> void:
 	var curr_clicks = []
@@ -125,7 +141,7 @@ func check_notes():
 		accs_lost_for_curr_note = "M"
 	if (next_note_found == false):
 		accs_lost_for_next_note = "M"
-	print(accs_lost_for_curr_note)
+	# print(accs_lost_for_curr_note)
 	all_clicks.append(current_note_clicks)
 	current_note_clicks = []
 	# ADD ACCURACY TO LIST
@@ -189,3 +205,6 @@ func resolve_past_note():
 		else:
 			GlobalData.note_accuracies.append(note_acc_to_check[0])
 	
+
+func end_lvl():
+	get_tree().change_scene_to_file("res://lvl_end.tscn")

@@ -41,7 +41,7 @@ stream = SubResource("AudioStreamOggVorbis_646pq")
 
 [node name="rhythming" parent="CanvasLayer" unique_id=842256082 instance=ExtResource("4_reens")]
 
-[node name="Score" parent="." unique_id=854860021 instance=ExtResource("5_0a5y4")]
+[node name="Score" parent="CanvasLayer" unique_id=854860021 instance=ExtResource("5_0a5y4")]
 offset_left = 258.0
 offset_top = 51.0
 offset_right = 333.0

@@ -83,4 +83,17 @@ text = "SUBMIT"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=586883035]
 
+[node name="Label4" type="Label" parent="." unique_id=1986385617]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 26.0
+offset_right = 934.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Your password is stored in a variable in this project. If this is an issue don't login ig??? I'm too lazy to be good at security uwu"
+autowrap_mode = 2
+
 [connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]

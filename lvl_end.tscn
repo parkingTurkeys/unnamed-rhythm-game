@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://gn1b21315ilm"]
+
+[ext_resource type="LabelSettings" uid="uid://ra2msx8lj406" path="res://basic_score_settings.tres" id="1_l42ic"]
+[ext_resource type="Script" uid="uid://b7tgxuvi3q3w" path="res://lvlend.gd" id="2_8up8e"]
+
+[node name="Control" type="Control" unique_id=216795967]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=402505958]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 41.0
+offset_right = 266.0
+offset_bottom = 248.0
+text = "Level End
+
+Score:"
+label_settings = ExtResource("1_l42ic")
+
+[node name="Score" type="Label" parent="." unique_id=2077538638]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 206.0
+offset_top = 183.0
+offset_right = 246.0
+offset_bottom = 250.0
+text = "X"
+label_settings = ExtResource("1_l42ic")
+script = ExtResource("2_8up8e")

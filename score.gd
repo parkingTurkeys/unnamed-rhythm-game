@@ -8,4 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (GlobalData.note_accuracies.size() - 1 >= 0): text = String(GlobalData.note_accuracies[GlobalData.note_accuracies.size() - 1])
+	if (GlobalData.note_accuracies.size() - 1 >= 0): 
+		GlobalData.score = String(GlobalData.note_accuracies[GlobalData.note_accuracies.size() - 1])
+		text = GlobalData.score
+	%curr_note.text = GlobalData.current_note
+	%next_note.text = GlobalData.next_note

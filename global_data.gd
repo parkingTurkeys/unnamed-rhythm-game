@@ -8,3 +8,6 @@ var NOTE_SPEED = 6
 var current_note = ""
 var next_note = ""
 var note_accuracies = []
+var start_yet = false
+var note_to_spawn = ""
+var score = "0"
