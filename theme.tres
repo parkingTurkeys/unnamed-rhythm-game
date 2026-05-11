@@ -1,9 +1,14 @@
 [gd_resource type="Theme" format=3 uid="uid://bm1hv5853b2cb"]
 
 [ext_resource type="StyleBox" uid="uid://b55nclaukb8pd" path="res://themestuff/yellow.stylebox" id="1_e1x85"]
+[ext_resource type="StyleBox" uid="uid://dhqqfaiionwlg" path="res://themestuff/teal.stylebox" id="2_cjfk0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
 bg_color = Color(0.6907576, 0.5133448, 9.62615e-07, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
 bg_color = Color(1, 0.75, 0, 1)
@@ -12,18 +17,30 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0.9666667, 1, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1x85"]
 bg_color = Color(0.94, 0.8146667, 0, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
 bg_color = Color(0.7859073, 0.5858589, 9.62615e-07, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
 
 [resource]
 AcceptDialog/constants/buttons_separation = 0
 AcceptDialog/styles/panel = null
 BoxContainer/constants/separation = 0
-Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(0, 0, 0, 1)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
@@ -39,9 +56,8 @@ Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
 Button/constants/align_to_largest_stylebox = 0
 Button/constants/h_separation = 0
 Button/constants/icon_max_width = 0
-Button/constants/outline_size = 0
-Button/font_sizes/font_size = 16
-Button/fonts/font = null
+Button/constants/outline_size = 7
+Button/font_sizes/font_size = 58
 Button/styles/disabled = SubResource("StyleBoxFlat_cjfk0")
 Button/styles/focus = SubResource("StyleBoxFlat_vj6dk")
 Button/styles/hover = SubResource("StyleBoxFlat_e1x85")
@@ -352,39 +368,24 @@ HeaderLarge/font_sizes/font_size = 16
 HeaderMedium/font_sizes/font_size = 16
 HeaderSmall/font_sizes/font_size = 16
 Icons/icons/close = null
-ItemList/colors/font_color = Color(0, 0, 0, 1)
-ItemList/colors/font_hovered_color = Color(0, 0, 0, 1)
-ItemList/colors/font_hovered_selected_color = Color(0, 0, 0, 1)
+ItemList/colors/font_color = Color(1, 1, 1, 1)
 ItemList/colors/font_outline_color = Color(0, 0, 0, 1)
-ItemList/colors/font_selected_color = Color(0, 0, 0, 1)
-ItemList/colors/guide_color = Color(0, 0, 0, 1)
-ItemList/colors/scroll_hint_color = Color(0, 0, 0, 1)
 ItemList/constants/h_separation = 0
 ItemList/constants/icon_margin = 0
 ItemList/constants/line_separation = 0
-ItemList/constants/outline_size = 0
+ItemList/constants/outline_size = 7
 ItemList/constants/v_separation = 0
-ItemList/font_sizes/font_size = 16
+ItemList/font_sizes/font_size = 36
 ItemList/fonts/font = null
 ItemList/icons/scroll_hint = null
-ItemList/styles/cursor = null
-ItemList/styles/cursor_unfocused = null
-ItemList/styles/focus = null
-ItemList/styles/hovered = null
-ItemList/styles/hovered_selected = null
-ItemList/styles/hovered_selected_focus = null
-ItemList/styles/panel = null
-ItemList/styles/selected = null
-ItemList/styles/selected_focus = null
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/colors/font_outline_color = Color(0, 0, 0, 1)
-Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+ItemList/styles/panel = ExtResource("2_cjfk0")
+Label/colors/font_color = Color(1, 1, 1, 1)
 Label/constants/line_spacing = 0
 Label/constants/outline_size = 0
 Label/constants/shadow_offset_x = 0
 Label/constants/shadow_offset_y = 0
 Label/constants/shadow_outline_size = 0
-Label/font_sizes/font_size = 16
+Label/font_sizes/font_size = 36
 Label/fonts/font = null
 Label/styles/focus = null
 Label/styles/normal = null

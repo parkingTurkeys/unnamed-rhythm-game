@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://j836xvfuqvj1"]
+[gd_scene format=3 uid="uid://8hcnktyfitls"]
 
-[node name="home" type="Control" unique_id=1426408010]
+[node name="gacha" type="Control" unique_id=657220989]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

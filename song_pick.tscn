@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djupwgeuk527s"]
 
 [ext_resource type="Theme" uid="uid://bm1hv5853b2cb" path="res://theme.tres" id="1_6lfm1"]
+[ext_resource type="Texture2D" uid="uid://dkyv2jekdedos" path="res://icon.svg" id="2_1aogq"]
 
 [node name="song_display" type="Control" unique_id=1524786904]
 layout_mode = 3
@@ -10,14 +11,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="songlist" type="ItemList" parent="." unique_id=1971048355]
+[node name="songlist" type="ItemList" parent="." unique_id=2083506467]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = 2.0
 offset_right = 646.0
 offset_bottom = 644.0
+theme = ExtResource("1_6lfm1")
+item_count = 2
+item_0/text = "Test"
+item_1/text = "Test 2"
 
-[node name="Button" type="Button" parent="." unique_id=1783290616]
+[node name="playbutton" type="Button" parent="." unique_id=1783290616]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 665.0
 offset_top = 512.0
@@ -25,3 +31,88 @@ offset_right = 1124.0
 offset_bottom = 625.0
 theme = ExtResource("1_6lfm1")
 text = "Play"
+
+[node name="songimg" type="Sprite2D" parent="." unique_id=1308178352]
+unique_name_in_owner = true
+position = Vector2(898.99994, 142.99998)
+scale = Vector2(3.4765627, 1.8749999)
+texture = ExtResource("2_1aogq")
+
+[node name="Info" type="Control" parent="." unique_id=558617390]
+layout_mode = 1
+offset_left = 666.0
+offset_top = 277.0
+offset_right = 1129.0
+offset_bottom = 489.0
+
+[node name="Label" type="Label" parent="Info" unique_id=689779021]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -12.0
+offset_right = 185.0
+offset_bottom = 38.0
+theme = ExtResource("1_6lfm1")
+text = "Song Title"
+
+[node name="Label2" type="Label" parent="Info" unique_id=720151327]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 34.0
+offset_right = 89.0
+offset_bottom = 68.0
+theme = ExtResource("1_6lfm1")
+theme_override_font_sizes/font_size = 24
+text = "Artist:"
+
+[node name="artistname" type="Label" parent="Info" unique_id=1224598393]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 97.0
+offset_top = 34.0
+offset_right = 168.0
+offset_bottom = 68.0
+theme = ExtResource("1_6lfm1")
+theme_override_font_sizes/font_size = 24
+text = "artistname"
+
+[node name="vocalsname" type="Label" parent="Info" unique_id=629081812]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 103.0
+offset_top = 63.0
+offset_right = 231.0
+offset_bottom = 97.0
+theme = ExtResource("1_6lfm1")
+theme_override_font_sizes/font_size = 24
+text = "vocalist"
+
+[node name="mapmakername" type="Label" parent="Info" unique_id=2095509507]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 86.0
+offset_top = 94.0
+offset_right = 214.0
+offset_bottom = 128.0
+theme = ExtResource("1_6lfm1")
+theme_override_font_sizes/font_size = 24
+text = "mapmaker"
+
+[node name="Label3" type="Label" parent="Info" unique_id=737422416]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 63.0
+offset_right = 97.0
+offset_bottom = 97.0
+theme = ExtResource("1_6lfm1")
+theme_override_font_sizes/font_size = 24
+text = "Vocals:"
+
+[node name="Label4" type="Label" parent="Info" unique_id=928037621]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 95.0
+offset_right = 98.0
+offset_bottom = 129.0
+theme = ExtResource("1_6lfm1")
+theme_override_font_sizes/font_size = 24
+text = "Map:"
