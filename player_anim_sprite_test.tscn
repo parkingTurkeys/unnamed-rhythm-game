@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://ck1yyuwioek5f"]
+
+[ext_resource type="Texture2D" uid="uid://dwr7252d6stax" path="res://art-stuff/chara/jack/jack1.jpg" id="1_7pja1"]
+[ext_resource type="Texture2D" uid="uid://dfeiebbydcwjx" path="res://art-stuff/chara/jack/jack2.jpg" id="2_7b0tt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7pja1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_7pja1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7b0tt")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7pja1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_7pja1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_7pja1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7b0tt")
+}],
+"loop": true,
+"name": &"attack_hold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7pja1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7b0tt")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7b0tt")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=361407423]
+scale = Vector2(0.47999996, 0.62616825)
+sprite_frames = SubResource("SpriteFrames_onrkg")
+animation = &"attack"

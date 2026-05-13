@@ -14,3 +14,8 @@ label_settings = SubResource("LabelSettings_kn0pc")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_ur26x")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1146574683]
+z_index = -1
+color = Color(0, 0.5011429, 0.5891002, 1)
+polygon = PackedVector2Array(-1, -1, 82, -1, 82, 96, -2, 96)

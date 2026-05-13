@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://cj1peegmqpq1e"]
 
 [ext_resource type="Script" uid="uid://b1jjxjuh1iqs3" path="res://level_setup.gd" id="1_646pq"]
-[ext_resource type="PackedScene" uid="uid://dm0iah28rwwoh" path="res://player.tscn" id="1_ctdcu"]
 [ext_resource type="PackedScene" uid="uid://b3i8e4oedttod" path="res://levels/lvl_test.tscn" id="2_646pq"]
 [ext_resource type="PackedScene" uid="uid://dad8wuged6ypr" path="res://rhythming.tscn" id="4_reens"]
 [ext_resource type="PackedScene" uid="uid://b5m5lt7d3b5ke" path="res://score.tscn" id="5_0a5y4"]
@@ -27,9 +26,6 @@ loop_offset = -2.0
 
 [node name="Level_Base" type="Node2D" unique_id=1458218152]
 script = ExtResource("1_646pq")
-
-[node name="Player" parent="." unique_id=1489017873 instance=ExtResource("1_ctdcu")]
-position = Vector2(425, 373)
 
 [node name="Level" parent="." unique_id=1753626915 instance=ExtResource("2_646pq")]
 position = Vector2(-3, -1)

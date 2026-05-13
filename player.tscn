@@ -1,26 +1,8 @@
 [gd_scene format=3 uid="uid://dm0iah28rwwoh"]
 
 [ext_resource type="Script" uid="uid://ba8a4oyhktfy" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://dwr7252d6stax" path="res://art-stuff/chara/jack/jack1.jpg" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://dfeiebbydcwjx" path="res://art-stuff/chara/jack/jack2.jpg" id="3_hqtel"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_i3pqv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_hqtel")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
-radius = 42.0
-height = 136.0
+[ext_resource type="PackedScene" uid="uid://ck1yyuwioek5f" path="res://player_anim_sprite_test.tscn" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://drjttv40ic44w" path="res://player_polygon_test.tscn" id="3_hqtel"]
 
 [node name="Player" type="Node2D" unique_id=106682676]
 
@@ -28,16 +10,11 @@ height = 136.0
 position = Vector2(0, 12)
 script = ExtResource("1_onrkg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1343976312]
-position = Vector2(0, -9.999998)
-scale = Vector2(0.47999996, 0.62616825)
-sprite_frames = SubResource("SpriteFrames_onrkg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1972713569]
-position = Vector2(0, -12)
-shape = SubResource("CapsuleShape2D_i3pqv")
-
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1924852044]
 position = Vector2(0, -12)
 position_smoothing_enabled = true
 position_smoothing_speed = 5.11
+
+[node name="AnimatedSprite2D" parent="CharacterBody2D" unique_id=361407423 instance=ExtResource("2_i3pqv")]
+
+[node name="CollisionPolygon2D" parent="CharacterBody2D" unique_id=713231138 instance=ExtResource("3_hqtel")]

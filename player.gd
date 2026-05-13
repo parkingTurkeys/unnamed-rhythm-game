@@ -16,6 +16,8 @@ var dash_dir_y = 0;
 var dash_dir_x = 0;
 var curr_dash_len = 0;
 
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

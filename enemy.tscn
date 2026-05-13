@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://mk5tbwbbr5ms"]
+
+[ext_resource type="Script" uid="uid://bhuvviyuafudc" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="SpriteFrames" uid="uid://c1ff3m5na3cen" path="res://sprite_frames_test.tres" id="2_qi2p4"]
+
+[node name="Enemy" type="Node2D" unique_id=1586560688]
+script = ExtResource("1_4gyqm")
+
+[node name="Enemy_charbody" type="CharacterBody2D" parent="." unique_id=1575083919]
+
+[node name="Enemy_anim2d" type="AnimatedSprite2D" parent="Enemy_charbody" unique_id=1555937271]
+position = Vector2(132.25002, 87.25)
+scale = Vector2(0.71484363, 0.47265625)
+sprite_frames = ExtResource("2_qi2p4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemy_charbody" unique_id=1359901823]
+position = Vector2(51, 51)
+polygon = PackedVector2Array(46, 2, 38, 59, 132, 61, 114, 7)
